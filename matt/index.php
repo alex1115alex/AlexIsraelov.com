@@ -9,9 +9,15 @@ $data = "<pre><b>User IP</b>: $ip <b> Browser</b>: $browser <br>on Time : $dateT
 fwrite($file, $data);
 fclose($file);
 
+$imagesDir = 'images/';
+
+$images = glob($imagesDir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+
+$randomImage = $images[array_rand($images)];
 
 // open the file in a binary mode
 $name = 'moonman.jpg';
+//$name = $randomImage;
 $fp = fopen($name, 'rb');
 
 // send the right headers
