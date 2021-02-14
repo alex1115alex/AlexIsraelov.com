@@ -17,11 +17,17 @@ $randomImage = $images[array_rand($images)];
 
 // open the file in a binary mode
 $name = 'moonman.jpg';
-//$name = $randomImage;
+$name = $randomImage;
 $fp = fopen($name, 'rb');
 
-// send the right headers
-header("Content-Type: image/png");
+//Save this incase we might need it in the future
+//header("Content-Type: image/png");
+
+//Get the content type of the image
+$contentType = mime_content_type($name);
+
+//Set the correct headers
+header("Content-Type: $contentType");
 header("Content-Length: " . filesize($name));
 
 // dump the picture and stop the script
