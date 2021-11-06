@@ -13,6 +13,8 @@ $imagesDir = 'images/';
 
 $images = glob($imagesDir . '*.{jpg,jpeg,png,gif,mp4}', GLOB_BRACE);
 
+//Command to convert vid to low-size gif: ffmpeg -i input.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" output.gif
+
 $randomImage = $images[array_rand($images)];
 
 // open the file in a binary mode
