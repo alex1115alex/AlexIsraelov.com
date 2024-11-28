@@ -1,29 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    setInterval(() => {
+        window.location.reload();
+    }, 5000);
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Screen Image</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        .fullscreen-image {
-            background-image: url('pic.jpg');
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100%;
-            position: fixed;
+        #content {
+            transform: rotate(270deg);
+            /* Prevent scrollbars */
+
+            /* Scale the content to fit the screen */
+            position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-direction: column;
+
+            
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+          
+          
         }
     </style>
 </head>
+
 <body>
-    <div class="fullscreen-image"></div>
+    <div id="content">
+        <img src="pic.jpg" alt="Full Screen Image" />
+        <h3>
+<script>
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Create a new Date object for the current date and time in Hong Kong timezone
+    const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' });
+    const hkTime = new Date(now);
+    const dayOfWeek = days[hkTime.getDay()];
+    const hours = hkTime.getHours();
+    const period = hours >= 12 ? 'pm' : 'am';
+    const formattedHours = hours % 12 === 0 ? 12 : hours % 12; // Convert to 12-hour format
+    
+    // Display the day and time in Hong Kong timezone
+    document.write(`${dayOfWeek} ${formattedHours}${period}`);
+</script>
+        </h3>
+    </div>
 </body>
+
 </html>
